@@ -13,12 +13,14 @@
 		steps: string[];
 	}
 
-	// 秋が旬の食材リスト（さらに拡充）
+	// 秋が旬の食材リスト（きのこを具体的に分類）
 	const seasonalIngredients: Ingredient[] = [
 		{ id: 'sanma', name: 'さんま', emoji: '🐟' },
 		{ id: 'sake', name: '鮭', emoji: '🐟' },
 		{ id: 'saba', name: '鯖', emoji: '🐟' },
-		{ id: 'kinoko', name: 'きのこ', emoji: '🍄' },
+		{ id: 'shiitake', name: 'しいたけ', emoji: '🍄' },
+		{ id: 'shimeji', name: 'しめじ', emoji: '🍄' },
+		{ id: 'eringi', name: 'エリンギ', emoji: '🍄' },
 		{ id: 'maitake', name: '舞茸', emoji: '🍄' },
 		{ id: 'matsutake', name: '松茸', emoji: '🌲' },
 		{ id: 'satsumaimo', name: 'さつまいも', emoji: '🍠' },
@@ -34,7 +36,7 @@
 		{ id: 'budou', name: 'ぶどう', emoji: '🍇' }
 	];
 
-	// 秋のレシピデータベース（レパートリーを大幅に拡充）
+	// 具体的なきのこを用いた秋のレシピデータベース
 	const recipeDatabase: Recipe[] = [
 		{
 			title: '秋刀魚の塩焼き 香味おろし添え',
@@ -60,7 +62,7 @@
 		},
 		{
 			title: '秋鮭のちゃんちゃん焼き',
-			usedIngredients: ['鮭', 'きのこ', 'かぼちゃ'],
+			usedIngredients: ['鮭', 'しめじ', 'かぼちゃ'],
 			time: '20分',
 			description: '北海道の郷土料理。味噌とバターのコクが鮭や野菜に絡む絶品メニュー。',
 			steps: [
@@ -70,12 +72,12 @@
 			]
 		},
 		{
-			title: '鮭ときのこ和風ホイル焼き',
-			usedIngredients: ['鮭', 'きのこ'],
+			title: '鮭としめじの和風ホイル焼き',
+			usedIngredients: ['鮭', 'しめじ'],
 			time: '15分',
-			description: '旨味が凝縮された鮭ときのこをアルミホイルで包み、素材の味を閉じ込めたヘルシーメニュー。',
+			description: '旨味が凝縮された鮭としめじをアルミホイルで包み、素材の味を閉じ込めたヘルシーメニュー。',
 			steps: [
-				'アルミホイルに薄切り玉ねぎ、鮭、たっぷりのきのこの順にのせる。',
+				'アルミホイルに薄切り玉ねぎ、鮭、ほぐしたしめじの順にのせる。',
 				'酒と醤油をふりかけ、バターをのせてしっかりと包む。',
 				'オーブントースターや魚焼きグリルで12〜15分加熱する。'
 			]
@@ -103,14 +105,36 @@
 			]
 		},
 		{
-			title: '秋の味覚たっぷりきのこバター醤油パスタ',
-			usedIngredients: ['きのこ', '舞茸'],
+			title: '秋の味覚！3種きのこのバター醤油パスタ',
+			usedIngredients: ['しめじ', 'エリンギ', '舞茸'],
 			time: '12分',
-			description: 'たっぷりのきのこをバターと醤油で炒めた、香ばしさがたまらない和風パスタ。',
+			description: 'たっぷりのきのこをバターと醤油で香ばしく炒めた、風味がたまらない和風パスタ。',
 			steps: [
 				'パスタを茹で始める。',
-				'フライパンにバターを熱し、食べやすくほぐしたきのこを強火で香ばしく炒める。',
+				'フライパンにバターを熱し、食べやすくほぐしたしめじ、エリンギ、舞茸を強火で炒める。',
 				'茹で上がったパスタと茹で汁、醤油を加えてさっと絡める。'
+			]
+		},
+		{
+			title: 'エリンギと豚肉の旨味たっぷりオイスター炒め',
+			usedIngredients: ['エリンギ'],
+			time: '10分',
+			description: '食感の良いエリンギと豚肉をオイスターソースでコク深く仕上げた一品。',
+			steps: [
+				'エリンギは食べやすい短冊切りにし、豚肉は一口大に切る。',
+				'フライパンにごま油を熱し、豚肉を炒めてからエリンギを加える。',
+				'オイスターソース、醤油、酒を回し入れて手早く炒め合わせる。'
+			]
+		},
+		{
+			title: 'しいたけの肉詰めジューシー焼き',
+			usedIngredients: ['しいたけ'],
+			time: '15分',
+			description: '肉汁としいたけの旨味が口いっぱいに広がる、お弁当にもおすすめのおかず。',
+			steps: [
+				'しいたけの軸を切り落とし、内側に薄く片栗粉を振る。',
+				'豚ひき肉、みじん切り玉ねぎ、調味料を混ぜ合わせたタネをしいたけに詰める。',
+				'肉の面から焼き、焼き色がついたら裏返して蓋をし、蒸し焼きにする。'
 			]
 		},
 		{
@@ -126,17 +150,17 @@
 		},
 		{
 			title: '極上！松茸の土瓶蒸し風スープ',
-			usedIngredients: ['松茸', 'きのこ'],
+			usedIngredients: ['松茸', 'しいたけ'],
 			time: '15分',
 			description: '贅沢な香りが広がる、おうちで料亭気分を味わえる上品なお吸い物。',
 			steps: [
-				'松茸の石づきを削ぎ落とし、食べやすく手で裂くか薄切りにする。',
+				'松茸としいたけの石づきを削ぎ落とし、薄切りにする。',
 				'鍋に出汁、薄口醤油、酒、塩を入れて温める。',
-				'松茸を入れてひと煮立ちさせ、三つ葉を添える。'
+				'きのこ類を入れてひと煮立ちさせ、三つ葉を添える。'
 			]
 		},
 		{
-			title: 'ホクホクさつまいものハニーバター煮',
+			title: 'ホクホクさつまいみのハニーバター煮',
 			usedIngredients: ['さつまいも'],
 			time: '20分',
 			description: 'さつまいもの自然な甘みにはちみつとバターが絡み合う、おやつにもぴったりな一品。',
@@ -429,7 +453,7 @@
 		margin: 0 auto;
 		padding: 2rem 1rem;
 		font-family: system-ui, -apple-system, sans-serif;
-		color: #2c3e50;
+		color: var(--fg);
 	}
 
 	header {
@@ -440,18 +464,18 @@
 	h1 {
 		font-size: 1.8rem;
 		margin: 0 0 0.5rem;
-		color: #8B4513;
+		color: var(--fg);
 	}
 
 	.subtitle {
 		margin: 0;
-		color: #7f8c8d;
+		color: var(--muted);
 		font-size: 0.95rem;
 	}
 
 	.selection-section {
-		background: #ffffff;
-		border: 1px solid #e2e8f0;
+		background: var(--surface);
+		border: 1px solid var(--line);
 		border-radius: 1rem;
 		padding: 1.5rem;
 		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
@@ -470,16 +494,16 @@
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
-		color: #7c2d12;
+		color: var(--fg);
 	}
 
 	.badge {
 		font-size: 0.7rem;
-		background: #ffedd5;
-		color: #9a3412;
+		background: var(--line);
+		color: var(--fg);
 		padding: 0.2rem 0.5rem;
 		border-radius: 999px;
-		font-weight: normal;
+		font-weight: 600;
 	}
 
 	.actions {
@@ -490,8 +514,9 @@
 	.text-btn {
 		background: none;
 		border: none;
-		color: #c2410c;
+		color: var(--accent);
 		font-size: 0.85rem;
+		font-weight: 600;
 		cursor: pointer;
 		padding: 0;
 	}
@@ -513,32 +538,37 @@
 		align-items: center;
 		justify-content: center;
 		padding: 0.75rem 0.5rem;
-		background: #fdf8f6;
-		border: 2px solid #fed7aa;
+		background: var(--surface);
+		border: 2px solid var(--line);
 		border-radius: 0.75rem;
 		cursor: pointer;
 		transition: all 0.2s ease;
 	}
 
 	.ingredient-chip:hover {
-		border-color: #fb923c;
-		background: #ffedd5;
+		border-color: var(--accent);
 	}
 
 	.ingredient-chip.selected {
-		background: #ffedd5;
-		border-color: #ea580c;
-		color: #9a3412;
+		background: var(--accent);
+		border-color: var(--accent);
+	}
+
+	/* 食材名・絵文字が同化して見えない問題を修正（コントラストを確保） */
+	.ingredient-chip .name {
+		font-size: 0.85rem;
+		font-weight: 700;
+		color: var(--fg);
+	}
+
+	.ingredient-chip.selected .name,
+	.ingredient-chip.selected .emoji {
+		color: #ffffff;
 	}
 
 	.emoji {
 		font-size: 1.5rem;
 		margin-bottom: 0.25rem;
-	}
-
-	.name {
-		font-size: 0.85rem;
-		font-weight: 600;
 	}
 
 	.cta-container {
@@ -548,18 +578,18 @@
 	.primary-btn {
 		width: 100%;
 		padding: 0.85rem 1.5rem;
-		background: #ea580c;
+		background: var(--accent);
 		color: white;
 		border: none;
 		border-radius: 0.75rem;
 		font-size: 1rem;
 		font-weight: 600;
 		cursor: pointer;
-		transition: background 0.2s ease;
+		transition: opacity 0.2s ease;
 	}
 
 	.primary-btn:hover:not(:disabled) {
-		background: #c2410c;
+		opacity: 0.9;
 	}
 
 	.primary-btn:disabled {
@@ -572,12 +602,12 @@
 	}
 
 	.recipe-card {
-		background: #ffffff;
-		border: 1px solid #fed7aa;
+		background: var(--surface);
+		border: 1px solid var(--line);
 		border-radius: 1rem;
 		padding: 1.75rem;
 		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-		border-left: 5px solid #ea580c;
+		border-left: 5px solid var(--accent);
 	}
 
 	.recipe-header {
@@ -588,8 +618,8 @@
 	}
 
 	.tag {
-		background: #ffedd5;
-		color: #9a3412;
+		background: var(--line);
+		color: var(--fg);
 		font-size: 0.75rem;
 		font-weight: 600;
 		padding: 0.25rem 0.6rem;
@@ -598,18 +628,18 @@
 
 	.time {
 		font-size: 0.85rem;
-		color: #718096;
+		color: var(--muted);
 	}
 
 	.recipe-card h3 {
 		margin: 0 0 0.5rem;
 		font-size: 1.4rem;
-		color: #2d3748;
+		color: var(--fg);
 	}
 
 	.description {
 		margin: 0 0 1.25rem;
-		color: #4a5568;
+		color: var(--muted);
 		font-size: 0.95rem;
 		line-height: 1.5;
 	}
@@ -617,6 +647,7 @@
 	.ingredients-used {
 		margin-bottom: 1.25rem;
 		font-size: 0.9rem;
+		color: var(--fg);
 	}
 
 	.tags {
@@ -627,28 +658,29 @@
 	}
 
 	.mini-tag {
-		background: #ffedd5;
-		color: #9a3412;
+		background: var(--line);
+		color: var(--fg);
 		font-size: 0.75rem;
+		font-weight: 600;
 		padding: 0.1rem 0.5rem;
 		border-radius: 0.25rem;
 	}
 
 	.steps {
-		border-top: 1px solid #fed7aa;
+		border-top: 1px solid var(--line);
 		padding-top: 1rem;
 	}
 
 	.steps h4 {
 		margin: 0 0 0.5rem;
 		font-size: 1rem;
-		color: #2d3748;
+		color: var(--fg);
 	}
 
 	.steps ol {
 		margin: 0;
 		padding-left: 1.25rem;
-		color: #4a5568;
+		color: var(--muted);
 		font-size: 0.9rem;
 		line-height: 1.6;
 	}

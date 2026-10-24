@@ -6,7 +6,6 @@
 
 	const nav = [
 		{ href: '/', label: 'レシピ提案' },
-		{ href: '/favorites', label: 'お気に入り' }
 	];
 </script>
 

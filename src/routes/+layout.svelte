@@ -5,14 +5,14 @@
 	let { children } = $props();
 
 	const nav = [
-		{ href: '/', label: 'おみくじ' },
-		{ href: '/history', label: 'おみくじ記録' }
+		{ href: '/', label: 'レシピ提案' },
+		{ href: '/favorites', label: 'お気に入り' }
 	];
 </script>
 
 <div class="shell">
 	<header>
-		<a class="brand" href="/">⛩ おみくじ</a>
+		<a class="brand" href="/">🍁 旬の食材レシピ</a>
 		<nav>
 			{#each nav as item (item.href)}
 				<a href={item.href} aria-current={page.url.pathname === item.href ? 'page' : undefined}>
@@ -26,12 +26,12 @@
 		{@render children()}
 	</main>
 
-	<footer>SvelteKit + Vercel / SSR</footer>
+	<footer>SvelteKit + 旬の食材レシピ提案アプリ</footer>
 </div>
 
 <style>
 	.shell {
-		max-width: 42rem;
+		max-width: 44rem;
 		margin: 0 auto;
 		padding: 1.5rem 1rem 3rem;
 		min-height: 100dvh;
@@ -46,14 +46,14 @@
 		gap: 1rem;
 		flex-wrap: wrap;
 		padding-bottom: 1rem;
-		border-bottom: 1px solid var(--line);
+		border-bottom: 1px solid #fed7aa;
 	}
 
 	.brand {
 		font-weight: 700;
 		font-size: 1.1rem;
 		text-decoration: none;
-		color: var(--fg);
+		color: #7c2d12;
 	}
 
 	nav {
@@ -65,12 +65,18 @@
 		padding: 0.35rem 0.75rem;
 		border-radius: 999px;
 		text-decoration: none;
-		color: var(--muted);
+		color: #718096;
 		font-size: 0.9rem;
+		transition: background 0.2s, color 0.2s;
+	}
+
+	nav a:hover {
+		color: #ea580c;
+		background: #ffedd5;
 	}
 
 	nav a[aria-current='page'] {
-		background: var(--accent);
+		background: #ea580c;
 		color: #fff;
 	}
 
@@ -82,7 +88,7 @@
 	footer {
 		padding-top: 2rem;
 		font-size: 0.75rem;
-		color: var(--muted);
+		color: #a0aec0;
 		text-align: center;
 	}
 </style>
